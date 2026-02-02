@@ -42,7 +42,7 @@ body {
 
                                       #no {
                                         background-color: #cccccc;
-                                          position: absolute;
+                                          position: fixed;
                                           }
 
                                           /* YES screen */
@@ -91,14 +91,20 @@ body {
                                                                                               <button id="yes" onclick="yesClicked()">YES ❤️</button>
                                                                                                 <button id="no" ontouchstart="moveButton()" onclick="moveButton()">NO 😜</button>
                                                                                                 </div>
-
                                                                                                 <script>
-                                                                                                function moveButton() {
-                                                                                                  const noBtn = document.getElementById("no");
-                                                                                                    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-                                                                                                      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-                                                                                                        noBtn.style.left = x + "px";
-                                                                                                          noBtn.style.top = y + "px";
+                                                                                                  function moveButton() {
+                                                                                                    const noBtn = document.getElementById("no");
+
+                                                                                                      const padding = 20; // keep space from edges
+                                                                                                        const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+                                                                                                          const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+                                                                                                            const x = Math.random() * maxX;
+                                                                                                              const y = Math.random() * maxY;
+
+                                                                                                                noBtn.style.left = x + "px";
+                                                                                                                  noBtn.style.top = y + "px";
+                                                                                                                
                                                                                                           }
 
                                                                                                           function yesClicked() {
@@ -107,7 +113,7 @@ body {
                                                                                                                       <h1>She said YES 💖</h1>
                                                                                                                             <p class="quote">
                                                                                                                                     “In all the world, there is no heart for me like yours.
-                                                                                                                                            In all the world, there is no love for you like mine.” 💕
+                                                                                                                                            In all the world, there is no love for you like mine.p” 💕
                                                                                                                                                   </p>
                                                                                                                                                       </div>
                                                                                                                                                         `;
