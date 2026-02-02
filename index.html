@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine ❤️</title>
+
+<style>
+body {
+  margin: 0;
+    height: 100vh;
+      background: #ffe6eb;
+        font-family: Arial, sans-serif;
+          overflow: hidden;
+          }
+
+          .container {
+            position: absolute;
+              top: 40%;
+                width: 100%;
+                  text-align: center;
+                  }
+
+                  h1 {
+                    color: #ff3366;
+                      font-size: 28px;
+                      }
+
+                      button {
+                        font-size: 18px;
+                          padding: 12px 22px;
+                            margin: 15px;
+                              border: none;
+                                border-radius: 8px;
+                                  cursor: pointer;
+                                  }
+
+                                  #yes {
+                                    background-color: #ff4d6d;
+                                      color: white;
+                                      }
+
+                                      #no {
+                                        background-color: #cccccc;
+                                          position: absolute;
+                                          }
+
+                                          /* YES screen */
+                                          .love-container {
+                                            text-align: center;
+                                              margin-top: 30vh;
+                                              }
+
+                                              .love-container h1 {
+                                                font-size: 32px;
+                                                  color: #ff3366;
+                                                  }
+
+                                                  .quote {
+                                                    font-size: 20px;
+                                                      color: #444;
+                                                        padding: 0 20px;
+                                                          margin-top: 20px;
+                                                          }
+
+                                                          /* Floating hearts */
+                                                          .heart {
+                                                            position: fixed;
+                                                              bottom: -20px;
+                                                                font-size: 24px;
+                                                                  animation: floatUp linear forwards;
+                                                                  }
+
+                                                                  @keyframes floatUp {
+                                                                    from {
+                                                                        transform: translateY(0);
+                                                                            opacity: 1;
+                                                                              }
+                                                                                to {
+                                                                                    transform: translateY(-100vh);
+                                                                                        opacity: 0;
+                                                                                          }
+                                                                                          }
+                                                                                          </style>
+                                                                                          </head>
+
+                                                                                          <body>
+
+                                                                                          <div class="container">
+                                                                                            <h1>Oo Meri pyari Shelu, Will you be my Valentine? 💖</h1>
+                                                                                              <button id="yes" onclick="yesClicked()">YES ❤️</button>
+                                                                                                <button id="no" ontouchstart="moveButton()" onclick="moveButton()">NO 😜</button>
+                                                                                                </div>
+
+                                                                                                <script>
+                                                                                                function moveButton() {
+                                                                                                  const noBtn = document.getElementById("no");
+                                                                                                    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+                                                                                                      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+                                                                                                        noBtn.style.left = x + "px";
+                                                                                                          noBtn.style.top = y + "px";
+                                                                                                          }
+
+                                                                                                          function yesClicked() {
+                                                                                                            document.body.innerHTML = `
+                                                                                                                <div class="love-container">
+                                                                                                                      <h1>She said YES 💖</h1>
+                                                                                                                            <p class="quote">
+                                                                                                                                    “In all the world, there is no heart for me like yours.
+                                                                                                                                            In all the world, there is no love for you like mine.” 💕
+                                                                                                                                                  </p>
+                                                                                                                                                      </div>
+                                                                                                                                                        `;
+
+                                                                                                                                                          for (let i = 0; i < 35; i++) {
+                                                                                                                                                              createHeart();
+                                                                                                                                                                }
+                                                                                                                                                                }
+
+                                                                                                                                                                function createHeart() {
+                                                                                                                                                                  const heart = document.createElement("div");
+                                                                                                                                                                    heart.className = "heart";
+                                                                                                                                                                      heart.innerHTML = "❤️";
+                                                                                                                                                                        heart.style.left = Math.random() * window.innerWidth + "px";
+                                                                                                                                                                          heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+                                                                                                                                                                            document.body.appendChild(heart);
+
+                                                                                                                                                                              setTimeout(() => {
+                                                                                                                                                                                  heart.remove();
+                                                                                                                                                                                    }, 5000);
+                                                                                                                                                                                    }
+                                                                                                                                                                                    </script>
+
+                                                                                                                                                                                    </body>
+                                                                                                                                                                                    </html>
